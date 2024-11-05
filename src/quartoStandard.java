@@ -2,7 +2,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-
 public class quartoStandard extends Cadastros {
 
     public quartoStandard(double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
