@@ -1,0 +1,10 @@
+Preço: 250.0
+Tem Banheiro: true
+Tem Televisão:false
+Tem Frigobar: false
+Tem Ar Condicionado: false
+Tem Wifi: false
+Quantidade de Banheiros: 1
+Quantidade de Camas Solteiro: 1
+Quantidade de Camas Casal: 1
+-------------------------

@@ -38,47 +38,47 @@ public abstract class Cadastros {
     public void salvarCadastroEmArquivo(String CadastrosQuartos) {
         try (FileWriter escritor = new FileWriter(CadastrosQuartos, true); Scanner scanner = new Scanner(System.in)) {
             // Definir preço.
-            System.out.print("Informe o preço do quarto: ");
+            System.out.println("Informe o preço do quarto: ");
             preco = scanner.nextDouble();
             escritor.write("Preço: " + preco + "\n");
 
             // Definir se tem banheiro.
-            System.out.print("O quarto tem banheiro? (true/false): ");
+            System.out.println("O quarto tem banheiro? (true/false): ");
             temBanheiro = scanner.nextBoolean();
             escritor.write("Tem Banheiro: " + temBanheiro + "\n");
 
             // Definir se tem televisão.
-            System.out.print("O quarto tem televisão? (true/false): ");
+            System.out.println("O quarto tem televisão? (true/false): ");
             temTelevisao = scanner.nextBoolean();
             escritor.write("Tem Televisão: " + temTelevisao + "\n");
 
             // Definir se tem frigobar.
-            System.out.print("O quarto tem frigobar? (true/false): ");
+            System.out.println("O quarto tem frigobar? (true/false): ");
             temFrigobar = scanner.nextBoolean();
             escritor.write("Tem Frigobar: " + temFrigobar + "\n");
 
             // Definir se tem ar condicionado.
-            System.out.print("O quarto tem ar condicionado? (true/false): ");
+            System.out.println("O quarto tem ar condicionado? (true/false): ");
             temArCondicionado = scanner.nextBoolean();
             escritor.write("Tem Ar Condicionado: " + temArCondicionado + "\n");
 
-            // Definir se tem wi-fi (próprio).
-            System.out.print("O quarto tem Wifi? (true/false): ");
+            // Definir se tem wi-fi.
+            System.out.println("O quarto tem Wifi? (true/false): ");
             temWifi = scanner.nextBoolean();
             escritor.write("Tem Wifi: " + temWifi + "\n");
 
             // Definir banheiros.
-            System.out.print("Quantos banheiros o quarto possui? ");
+            System.out.println("Quantos banheiros o quarto possui? ");
             quantiaBanheiros = scanner.nextInt();
             escritor.write("Quantidade de Banheiros: " + quantiaBanheiros + "\n");
 
             // Definir camas de solteiro.
-            System.out.print("Quantas camas de solteiro o quarto possui? ");
+            System.out.println("Quantas camas de solteiro o quarto possui? ");
             quantiaCamasSolteiros = scanner.nextInt();
             escritor.write("Quantidade de Camas Solteiro: " + quantiaCamasSolteiros + "\n");
 
             // Definir camas de casal.
-            System.out.print("Quantas camas de casal o quarto possui? ");
+            System.out.println("Quantas camas de casal o quarto possui? ");
             quantiaCamasCasal = scanner.nextInt();
             escritor.write("Quantidade de Camas Casal: " + quantiaCamasCasal + "\n");
 
@@ -88,5 +88,6 @@ public abstract class Cadastros {
             System.out.println("Erro ao salvar cadastro: " + e.getMessage());
         }
     }
+
 }
 
