@@ -18,3 +18,13 @@ Quantidade de Banheiros: 1
 Quantidade de Camas Solteiro: 10
 Quantidade de Camas Casal: 10
 -------------------------
+Preço: 3.452345345E9
+Tem Banheiro: false
+Tem Televisão:false
+Tem Frigobar: false
+Tem Ar Condicionado: false
+Tem Wifi: false
+Quantidade de Banheiros: 1
+Quantidade de Camas Solteiro: 1
+Quantidade de Camas Casal: 1
+-------------------------
