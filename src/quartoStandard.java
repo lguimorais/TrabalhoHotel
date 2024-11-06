@@ -10,7 +10,7 @@ public class quartoStandard extends Cadastros {
 
     @Override
     public void salvarCadastroEmArquivo(String CadastrosQuartos) {
-        try (FileWriter escritor = new FileWriter(CadastrosQuartos, true); Scanner scanner = new Scanner(System.in)) {
+        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + CadastrosQuartos, true); Scanner scanner = new Scanner(System.in)) {
             // Definir preço.
             System.out.println("Informe o preço do quarto: ");
             preco = scanner.nextDouble();

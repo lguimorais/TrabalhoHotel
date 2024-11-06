@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Scanner;
 
 public class Main {
@@ -5,6 +6,10 @@ public class Main {
         int escolha;
         Scanner scanf = new Scanner(System.in);
         quartoStandard quartoStandard = new quartoStandard(150.0, true, false, false, false, false, 1, 1, 0);
+
+        boolean teste = new File("C:\\Hotel\\" + "Teste").mkdir();
+        System.out.println(teste);
+
 
         System.out.println("┌—————————————————————————————————————————————————┐");
         System.out.println("│       SISTEMA PRIVADO DO HOTEL BET-CUSCUZ       │");
