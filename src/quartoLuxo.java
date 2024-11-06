@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class quartoLuxo extends Cadastros {
 
     public quartoLuxo(double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
-        super(preco, temBanheiro, temTelevisao, temFrigobar, temArCondicionado, temWifi, quantiaBanheiros, quantiaCamasSolteiros, quantiaCamasCasal);
+        super(350.0, true, true, true, true, true, 2, 3, 1); // Configuração padrão do Quarto Standard
     }
 
     @Override
-    public void salvarCadastroEmArquivo(String CadastrosQuartos) {
-        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + CadastrosQuartos, true); Scanner scanner = new Scanner(System.in)) {
+    public void salvarCadastroEmArquivo(String QuartosLuxo) {
+        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + QuartosLuxo, true); Scanner scanner = new Scanner(System.in)) {
             // Definir preço.
             System.out.println("Informe o preço do quarto: ");
             preco = scanner.nextDouble();
