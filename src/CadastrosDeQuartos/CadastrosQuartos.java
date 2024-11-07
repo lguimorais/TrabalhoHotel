@@ -1,3 +1,5 @@
+package CadastrosDeQuartos;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -27,18 +29,7 @@ public abstract class CadastrosQuartos {
         this.quantiaCamasCasal = quantiaCamasCasal;
     }
 
-    public int getNumeroQuarto() { return numeroQuarto; }
-    public double getPreco() { return preco; }
-    public boolean getTemBanhanheiro() { return temBanheiro; }
-    public boolean getTemTelevisao() { return temTelevisao; }
-    public boolean getTemFrigobar() { return temFrigobar; }
-    public boolean getTemArCondicionado() { return temArCondicionado; }
-    public boolean getTemWifi() { return temWifi; }
-    public int getQuantiaBanheiros() { return quantiaBanheiros; }
-    public int getQuantiaCamasSolteiros() { return quantiaCamasSolteiros; }
-    public int getQuantiaCamasCasal() { return quantiaCamasCasal; }
-
-    public void salvarCadastroEmArquivo(String CadastrosQuartos) {
+    public void salvarCadastroQuartosEmArquivo(String CadastrosQuartos) {
         try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + CadastrosQuartos, true); Scanner scanner = new Scanner(System.in)) {
             // Definir número de quarto.
             System.out.println("Informe o número do quarto: ");
@@ -96,6 +87,5 @@ public abstract class CadastrosQuartos {
             System.out.println("Erro ao salvar cadastro: " + e.getMessage());
         }
     }
-
 }
 

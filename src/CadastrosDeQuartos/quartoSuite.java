@@ -1,3 +1,5 @@
+package CadastrosDeQuartos;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -9,7 +11,7 @@ public class quartoSuite extends CadastrosQuartos {
     }
 
     @Override
-    public void salvarCadastroEmArquivo(String QuartosSuite) {
+    public void salvarCadastroQuartosEmArquivo(String QuartosSuite) {
         try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + QuartosSuite, true); Scanner scanner = new Scanner(System.in)) {
             // Definir número de quarto.
             System.out.println("Informe o número do quarto: ");
@@ -23,11 +25,11 @@ public class quartoSuite extends CadastrosQuartos {
 
             // Definir se tem banheiro.
             System.out.println("Quarto 'Suite' tem banheiro.");
-            escritor.write("Tem Banheiro:" + temBanheiro + "\n");
+            escritor.write("Tem Banheiro: " + temBanheiro + "\n");
 
             // Definir se tem televisão.
             System.out.println("Quarto 'Suite' tem televisão.");
-            escritor.write("Tem Televisão:" + temTelevisao + "\n");
+            escritor.write("Tem Televisão: " + temTelevisao + "\n");
 
             // Definir se tem frigobar.
             System.out.println("Quarto 'Suite' não tem frigobar.");
