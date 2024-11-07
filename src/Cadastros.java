@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public abstract class Cadastros {
+    int numeroQuarto;
     double preco;
     boolean temBanheiro;
     boolean temTelevisao;
@@ -13,7 +14,8 @@ public abstract class Cadastros {
     int quantiaCamasSolteiros;
     int quantiaCamasCasal;
 
-    public Cadastros(double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
+    public Cadastros(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
+        this.numeroQuarto = numeroQuarto;
         this.preco = preco;
         this.temBanheiro = temBanheiro;
         this.temTelevisao = temTelevisao;
@@ -25,6 +27,7 @@ public abstract class Cadastros {
         this.quantiaCamasCasal = quantiaCamasCasal;
     }
 
+    public int getNumeroQuarto() { return numeroQuarto; }
     public double getPreco() { return preco; }
     public boolean getTemBanhanheiro() { return temBanheiro; }
     public boolean getTemTelevisao() { return temTelevisao; }
@@ -36,7 +39,12 @@ public abstract class Cadastros {
     public int getQuantiaCamasCasal() { return quantiaCamasCasal; }
 
     public void salvarCadastroEmArquivo(String CadastrosQuartos) {
-        try (FileWriter escritor = new FileWriter(CadastrosQuartos, true); Scanner scanner = new Scanner(System.in)) {
+        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + CadastrosQuartos, true); Scanner scanner = new Scanner(System.in)) {
+            // Definir número de quarto.
+            System.out.println("Informe o número do quarto: ");
+            numeroQuarto = scanner.nextInt();
+            escritor.write("Número do Quarto: " + numeroQuarto + "\n");
+
             // Definir preço.
             System.out.println("Informe o preço do quarto: ");
             preco = scanner.nextDouble();
@@ -63,7 +71,7 @@ public abstract class Cadastros {
             escritor.write("Tem Ar Condicionado: " + temArCondicionado + "\n");
 
             // Definir se tem wi-fi.
-            System.out.println("O quarto tem Wifi? (true/false): ");
+            System.out.println("O quarto tem Wifi próprio? (true/false): ");
             temWifi = scanner.nextBoolean();
             escritor.write("Tem Wifi: " + temWifi + "\n");
 
@@ -82,7 +90,7 @@ public abstract class Cadastros {
             quantiaCamasCasal = scanner.nextInt();
             escritor.write("Quantidade de Camas Casal: " + quantiaCamasCasal + "\n");
 
-            escritor.write("-------------------------\n");
+            escritor.write("———————————————————————————————————————————————\n");
             System.out.println("Cadastro do quarto salvo com sucesso.");
         } catch (IOException e) {
             System.out.println("Erro ao salvar cadastro: " + e.getMessage());

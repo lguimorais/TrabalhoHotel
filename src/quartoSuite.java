@@ -4,37 +4,41 @@ import java.util.Scanner;
 
 public class quartoSuite extends Cadastros {
 
-    public quartoSuite(double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
-        super(250.0, true, true, true, true, true, 1, 2, 1); // Configuração padrão do Quarto Standard
+    public quartoSuite(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
+        super(0, 250.0, true, true, false, true, false, 1, 2, 1); // Configuração padrão do Quarto Standard
     }
 
     @Override
-    public void salvarCadastroEmArquivo(String CadastrosQuartos) {
-        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + CadastrosQuartos, true); Scanner scanner = new Scanner(System.in)) {
+    public void salvarCadastroEmArquivo(String QuartosSuite) {
+        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + QuartosSuite, true); Scanner scanner = new Scanner(System.in)) {
+            // Definir número de quarto.
+            System.out.println("Informe o número do quarto: ");
+            numeroQuarto = scanner.nextInt();
+            escritor.write("Número do Quarto: " + numeroQuarto + "\n");
+
             // Definir preço.
             System.out.println("Informe o preço do quarto: ");
             preco = scanner.nextDouble();
             escritor.write("Preço: " + preco + "\n");
 
             // Definir se tem banheiro.
-            System.out.println("O quarto tem banheiro? (true/false): ");
-            temBanheiro = scanner.nextBoolean();
-            escritor.write("Tem Banheiro: " + temBanheiro + "\n");
+            System.out.println("Quarto 'Suite' tem banheiro.");
+            escritor.write("Tem Banheiro:" + temBanheiro + "\n");
 
             // Definir se tem televisão.
-            System.out.println("Quarto 'Standard' não tem televisões.");
+            System.out.println("Quarto 'Suite' tem televisão.");
             escritor.write("Tem Televisão:" + temTelevisao + "\n");
 
             // Definir se tem frigobar.
-            System.out.println("Quarto 'Standard' não tem frigobar.");
+            System.out.println("Quarto 'Suite' não tem frigobar.");
             escritor.write("Tem Frigobar: " + temFrigobar + "\n");
 
             // Definir se tem ar condicionado.
-            System.out.println("Quarto 'Standard' não tem ar condicionado.");
+            System.out.println("Quarto 'Suite' tem ar condicionado.");
             escritor.write("Tem Ar Condicionado: " + temArCondicionado + "\n");
 
             // Definir se tem wi-fi (próprio).
-            System.out.println("Quarto 'Standard' não tem wifi.");
+            System.out.println("Quarto 'Suite' não tem wifi próprio.");
             escritor.write("Tem Wifi: " + temWifi + "\n");
 
             // Definir banheiros.
@@ -52,7 +56,7 @@ public class quartoSuite extends Cadastros {
             quantiaCamasCasal = scanner.nextInt();
             escritor.write("Quantidade de Camas Casal: " + quantiaCamasCasal + "\n");
 
-            escritor.write("-------------------------\n");
+            escritor.write("———————————————————————————————————————————————\n");
             System.out.println("Cadastro do quarto salvo com sucesso.");
         } catch (IOException e) {
             System.out.println("Erro ao salvar cadastro: " + e.getMessage());

@@ -4,13 +4,18 @@ import java.util.Scanner;
 
 public class quartoStandard extends Cadastros {
 
-    public quartoStandard(double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
-        super(150.0, true, false, false, false, false, 1, 1, 0); // Configuração padrão do Quarto Standard
+    public quartoStandard(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
+        super(0, 150.0, true, false, false, false, false, 1, 1, 0); // Configuração padrão do Quarto Standard
     }
 
     @Override
     public void salvarCadastroEmArquivo(String QuartosStandard) {
-            try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + QuartosStandard, true); Scanner scanner = new Scanner(System.in)) {
+        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + QuartosStandard, true); Scanner scanner = new Scanner(System.in)) {
+            // Definir número de quarto.
+            System.out.println("Informe o número do quarto: ");
+            numeroQuarto = scanner.nextInt();
+            escritor.write("Número do Quarto: " + numeroQuarto + "\n");
+
             // Definir preço.
             System.out.println("Informe o preço do quarto: ");
             preco = scanner.nextDouble();
@@ -22,7 +27,7 @@ public class quartoStandard extends Cadastros {
             escritor.write("Tem Banheiro: " + temBanheiro + "\n");
 
             // Definir se tem televisão.
-            System.out.println("Quarto 'Standard' não tem televisões.");
+            System.out.println("Quarto 'Standard' não tem televisão.");
             escritor.write("Tem Televisão:" + temTelevisao + "\n");
 
             // Definir se tem frigobar.
@@ -52,7 +57,7 @@ public class quartoStandard extends Cadastros {
             quantiaCamasCasal = scanner.nextInt();
             escritor.write("Quantidade de Camas Casal: " + quantiaCamasCasal + "\n");
 
-            escritor.write("-------------------------\n");
+            escritor.write("———————————————————————————————————————————————\n");
             System.out.println("Cadastro do quarto salvo com sucesso.");
         } catch (IOException e) {
             System.out.println("Erro ao salvar cadastro: " + e.getMessage());
