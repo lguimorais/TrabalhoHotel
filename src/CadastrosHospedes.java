@@ -69,7 +69,7 @@ public class CadastrosHospedes {
 
     // Formatador de DATA DE NASCIMENTO.
     public static String formatarDataNascimento(String dataNascimentoHospede) {
-        if (dataNascimentoHospede == null || dataNascimentoHospede.length() != 11 || !dataNascimentoHospede.matches("\\d+")) {
+        if (dataNascimentoHospede == null || dataNascimentoHospede.length() != 8 || !dataNascimentoHospede.matches("\\d+")) {
             return null;  // Retorna nulo caso a data seja inválida.
         }
         // Formata a data como "00/00/0000".
