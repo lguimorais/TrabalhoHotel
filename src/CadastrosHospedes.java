@@ -152,4 +152,4 @@ public class CadastrosHospedes {
             System.out.println("Erro ao salvar cadastro: " + e.getMessage());
         }
     }
-}  // PS: CALCULAR IDADE COM BASE NA DATA DE NASCIMENTO.
+}
