@@ -1,6 +1,9 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.DateTimeException;
 
 public class CadastrosHospedes {
     String nomeHospede;
@@ -80,18 +83,37 @@ public class CadastrosHospedes {
     public static String capturarDataNascimento(Scanner scanner) {
         String dataNascimentoHospede;
         while (true) {
-            System.out.println("Digite a Data de Nascimento (apenas números): ");
+            System.out.println("Digite a Data de Nascimento (apenas números - DIA/MÊS/ANO): ");
             dataNascimentoHospede = scanner.nextLine();
             if (dataNascimentoHospede.length() == 8 && dataNascimentoHospede.matches("\\d+")) {
-                break;  // Se o Número é válido, sai do loop.
+                try {
+                    // Verifica se a data é válida
+                    int dia = Integer.parseInt(dataNascimentoHospede.substring(0, 2));
+                    int mes = Integer.parseInt(dataNascimentoHospede.substring(2, 4));
+                    int ano = Integer.parseInt(dataNascimentoHospede.substring(4, 8));
+                    LocalDate dataNascimento = LocalDate.of(ano, mes, dia);  // Tenta criar uma data válida.
+                    return formatarDataNascimento(dataNascimentoHospede);  // Retorna a data formatada se for válida.
+                } catch (DateTimeException e) {
+                    System.out.println("Data inválida. Certifique-se de que está no formato correto (DIA/MÊS/ANO) e representa uma data existente.");
+                }
+            } else {
+                System.out.println("Data inválida. Certifique-se de que tem exatamente 8 dígitos numéricos (formato DIA/MÊS/ANO).");
             }
-            System.out.println("Número inválido. Certifique-se de que tem exatamente 8 dígitos numéricos.");
         }
-        return formatarDataNascimento(dataNascimentoHospede);
     }
 
-    public void salvarCadastroClientesEmArquivo(String CadastrosClientes) {
-        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Hóspedes\\" + CadastrosClientes, true); Scanner scanner = new Scanner(System.in)) {
+    // Calcular Idade do indivíduo com base na data de nascimento.
+    public static int calcularIdade(String dataNascimentoHospede) {
+        int dia = Integer.parseInt(dataNascimentoHospede.substring(0, 2));
+        int mes = Integer.parseInt(dataNascimentoHospede.substring(2, 4));
+        int ano = Integer.parseInt(dataNascimentoHospede.substring(4, 8));
+        LocalDate dataNascimento = LocalDate.of(ano, mes, dia);
+        return Period.between(dataNascimento, LocalDate.now()).getYears();
+    }
+
+
+    public void salvarCadastroHospedesEmArquivo(String CadastrosHospedes) {
+        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Hóspedes\\" + CadastrosHospedes, true); Scanner scanner = new Scanner(System.in)) {
             // Definir nome do hóspede.
             System.out.println("Informe o nome do Hóspede: ");
             nomeHospede = scanner.nextLine();
@@ -119,15 +141,15 @@ public class CadastrosHospedes {
             dataNascimentoHospede = capturarDataNascimento(scanner);
             escritor.write("Data de nascimento do Hóspede: " + dataNascimentoHospede + "\n");
 
-            // Definir idade do hóspede.
-            System.out.println("Informe idade do Hóspede: ");
-            idadeHospede = scanner.nextInt();
+            // Calcula a idade com base na data de nascimento.
+            idadeHospede = calcularIdade(dataNascimentoHospede.replaceAll("/", ""));
+            System.out.println("O hóspede tem: " + idadeHospede + " anos.");
             escritor.write("Idade do Hóspede: " + idadeHospede + "\n");
 
             escritor.write("———————————————————————————————————————————————\n");
-            System.out.println("Cadastro do quarto salvo com sucesso.");
+            System.out.println("Cadastro do hóspede salvo com sucesso.");
         } catch (IOException e) {
             System.out.println("Erro ao salvar cadastro: " + e.getMessage());
         }
     }
-}  // PS: FAZER COM QUE A DAT. NASC. SE ADEQUE À UMA FORMATAÇÃO. CALCULAR IDADE COM BASE NA DATA DE NASCIMENTO.
+}  // PS: CALCULAR IDADE COM BASE NA DATA DE NASCIMENTO.
