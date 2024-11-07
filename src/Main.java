@@ -14,6 +14,7 @@ public class Main {
         quartoLuxo quartoLuxo = new quartoLuxo(0, 350.0, true, true, true, true, true, 2, 3, 1);
         CadastrosHospedes hospedes = new CadastrosHospedes("a", "123.456.789-00", "Brasileiro", "HotelBetCuscuz@gmail.com", "00/00/000", "(99) 99999-9999", 18);
 
+        boolean PastaHotel = new File("C:\\Hotel").mkdir();
         boolean PastaQuartos = new File("C:\\Hotel\\" + "Quartos").mkdir();
         boolean PastaClientes = new File("C:\\Hotel\\" + "Hóspedes").mkdir();
 

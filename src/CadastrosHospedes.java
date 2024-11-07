@@ -21,7 +21,7 @@ public class CadastrosHospedes {
         this.dataNascimentoHospede = dataNascimentoHospede;
     }
 
-    // Formatador de CPF.
+        // Formatador de CPF.
         public static String formatarCPF(String cpfHospede) {
             if (cpfHospede == null || cpfHospede.length() != 11 || !cpfHospede.matches("\\d+")) {
                 return null;  // Retorna nulo caso o CPF seja inválido.
@@ -43,6 +43,52 @@ public class CadastrosHospedes {
             }
             return formatarCPF(cpfHospede);
         }
+
+    // Formatador de NUMERO.
+    public static String formatarNumero(String numeroHospede) {
+        if (numeroHospede == null || numeroHospede.length() != 11 || !numeroHospede.matches("\\d+")) {
+            return null;  // Retorna nulo caso o Número seja inválido.
+        }
+        // Formata o Número como "(00) 00000-0000".
+        return "(" + numeroHospede.substring(0, 2) + ") " + numeroHospede.substring(2, 7) + "-" + numeroHospede.substring(7, 11);
+    }
+
+    // Método para validar e capturar o NÚMERO até estar no formato correto.
+    public static String capturarNumero(Scanner scanner) {
+        String numeroHospede;
+        while (true) {
+            System.out.println("Digite o Número (apenas números): ");
+            numeroHospede = scanner.nextLine();
+            if (numeroHospede.length() == 11 && numeroHospede.matches("\\d+")) {
+                break;  // Se o Número é válido, sai do loop.
+            }
+            System.out.println("Número inválido. Certifique-se de que tem exatamente 11 dígitos numéricos.");
+        }
+        return formatarNumero(numeroHospede);
+    }
+
+    // Formatador de DATA DE NASCIMENTO.
+    public static String formatarDataNascimento(String dataNascimentoHospede) {
+        if (dataNascimentoHospede == null || dataNascimentoHospede.length() != 11 || !dataNascimentoHospede.matches("\\d+")) {
+            return null;  // Retorna nulo caso a data seja inválida.
+        }
+        // Formata a data como "00/00/0000".
+        return dataNascimentoHospede.substring(0, 2) + "/" + dataNascimentoHospede.substring(2, 4) + "/" + dataNascimentoHospede.substring(4, 8);
+    }
+
+    // Método para validar e capturar a DATA DE NASCIMENTO até estar no formato correto.
+    public static String capturarDataNascimento(Scanner scanner) {
+        String dataNascimentoHospede;
+        while (true) {
+            System.out.println("Digite a Data de Nascimento (apenas números): ");
+            dataNascimentoHospede = scanner.nextLine();
+            if (dataNascimentoHospede.length() == 8 && dataNascimentoHospede.matches("\\d+")) {
+                break;  // Se o Número é válido, sai do loop.
+            }
+            System.out.println("Número inválido. Certifique-se de que tem exatamente 8 dígitos numéricos.");
+        }
+        return formatarDataNascimento(dataNascimentoHospede);
+    }
 
     public void salvarCadastroClientesEmArquivo(String CadastrosClientes) {
         try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Hóspedes\\" + CadastrosClientes, true); Scanner scanner = new Scanner(System.in)) {
@@ -66,13 +112,11 @@ public class CadastrosHospedes {
             escritor.write("Email do Hóspede: " + emailHospede + "\n");
 
             // Definir número do hóspede.
-            System.out.println("Informe o número do Hóspede: ");
-            numeroHospede = scanner.nextLine();
+            numeroHospede = capturarNumero(scanner);
             escritor.write("Número do Hóspede: " + numeroHospede + "\n");
 
             // Definir data de nascimento do hóspede.
-            System.out.println("Informe a data de nascimento do Hóspede: ");
-            dataNascimentoHospede = scanner.nextLine();
+            dataNascimentoHospede = capturarDataNascimento(scanner);
             escritor.write("Data de nascimento do Hóspede: " + dataNascimentoHospede + "\n");
 
             // Definir idade do hóspede.
@@ -86,4 +130,4 @@ public class CadastrosHospedes {
             System.out.println("Erro ao salvar cadastro: " + e.getMessage());
         }
     }
-}  // PS: FAZER COM QUE O CPF, NUMERO E DAT. NASC. SE ADEQUE À UMA FORMATAÇÃO. CALCULAR IDADE COM BASE NA DATA DE NASCIMENTO.
+}  // PS: FAZER COM QUE A DAT. NASC. SE ADEQUE À UMA FORMATAÇÃO. CALCULAR IDADE COM BASE NA DATA DE NASCIMENTO.
