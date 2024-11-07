@@ -2,7 +2,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class quartoSuite extends Cadastros {
+public class quartoSuite extends CadastrosQuartos {
 
     public quartoSuite(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
         super(0, 250.0, true, true, false, true, false, 1, 2, 1); // Configuração padrão do Quarto Standard

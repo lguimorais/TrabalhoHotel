@@ -2,7 +2,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public abstract class Cadastros {
+public abstract class CadastrosQuartos {
     int numeroQuarto;
     double preco;
     boolean temBanheiro;
@@ -14,7 +14,7 @@ public abstract class Cadastros {
     int quantiaCamasSolteiros;
     int quantiaCamasCasal;
 
-    public Cadastros(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
+    public CadastrosQuartos(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
         this.numeroQuarto = numeroQuarto;
         this.preco = preco;
         this.temBanheiro = temBanheiro;
