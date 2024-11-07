@@ -21,6 +21,29 @@ public class CadastrosHospedes {
         this.dataNascimentoHospede = dataNascimentoHospede;
     }
 
+    // Formatador de CPF.
+        public static String formatarCPF(String cpfHospede) {
+            if (cpfHospede == null || cpfHospede.length() != 11 || !cpfHospede.matches("\\d+")) {
+                return null;  // Retorna nulo caso o CPF seja inválido.
+            }
+            // Formata o CPF como "000.000.000-00".
+            return cpfHospede.substring(0, 3) + "." + cpfHospede.substring(3, 6) + "." + cpfHospede.substring(6, 9) + "-" + cpfHospede.substring(9, 11);
+        }
+
+        // Método para validar e capturar o CPF até estar no formato correto.
+        public static String capturarCPF(Scanner scanner) {
+            String cpfHospede;
+            while (true) {
+                System.out.println("Digite o CPF (apenas números): ");
+                cpfHospede = scanner.nextLine();
+                if (cpfHospede.length() == 11 && cpfHospede.matches("\\d+")) {
+                    break;  // Se o CPF é válido, sai do loop.
+                }
+                System.out.println("CPF inválido. Certifique-se de que tem exatamente 11 dígitos numéricos.");
+            }
+            return formatarCPF(cpfHospede);
+        }
+
     public void salvarCadastroClientesEmArquivo(String CadastrosClientes) {
         try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Hóspedes\\" + CadastrosClientes, true); Scanner scanner = new Scanner(System.in)) {
             // Definir nome do hóspede.
@@ -29,8 +52,7 @@ public class CadastrosHospedes {
             escritor.write("Nome do Hóspede: " + nomeHospede + "\n");
 
             // Definir cpf do hóspede.
-            System.out.println("Informe o CPF do Hóspede: ");
-            cpfHospede = scanner.nextLine();
+            cpfHospede = capturarCPF(scanner);
             escritor.write("CPF do Hóspede: " + cpfHospede + "\n");
 
             // Definir nacionalidade do hóspede.
