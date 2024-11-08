@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class quartoStandard extends CadastrosQuartos {
 
-    public quartoStandard(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
-        super(0, 150.0, true, false, false, false, false, 1, 1, 0); // Configuração padrão do Quarto Standard
+    public quartoStandard(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, boolean estaDisponivel, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
+        super(0, 150.0, true, false, false, false, false, true, 1, 1, 1); // Configuração padrão do Quarto Standard
     }
 
     @Override
@@ -43,6 +43,10 @@ public class quartoStandard extends CadastrosQuartos {
             // Definir se tem wi-fi (próprio).
             System.out.println("Quarto 'Standard' não tem wifi.");
             escritor.write("Tem Wifi: " + temWifi + "\n");
+
+            // Definir se está disponível.
+            System.out.println("Quarto 'Standard' está dispónivel.");
+            escritor.write("Está disponível: " + estaDisponivel + "\n");
 
             // Definir banheiros.
             System.out.println("Quantos banheiros o quarto possui? ");

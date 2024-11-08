@@ -12,11 +12,12 @@ public abstract class CadastrosQuartos {
     boolean temFrigobar;
     boolean temArCondicionado;
     boolean temWifi;
+    boolean estaDisponivel;
     int quantiaBanheiros;
     int quantiaCamasSolteiros;
     int quantiaCamasCasal;
 
-    public CadastrosQuartos(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
+    public CadastrosQuartos(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, boolean estaDisponivel, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
         this.numeroQuarto = numeroQuarto;
         this.preco = preco;
         this.temBanheiro = temBanheiro;
@@ -24,6 +25,7 @@ public abstract class CadastrosQuartos {
         this.temFrigobar = temFrigobar;
         this.temArCondicionado = temArCondicionado;
         this.temWifi = temWifi;
+        this.estaDisponivel = estaDisponivel;
         this.quantiaBanheiros = quantiaBanheiros;
         this.quantiaCamasSolteiros = quantiaCamasSolteiros;
         this.quantiaCamasCasal = quantiaCamasCasal;

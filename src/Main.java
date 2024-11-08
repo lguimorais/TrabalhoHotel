@@ -9,11 +9,11 @@ public class Main {
         int escolhaInicial = -1;
         Scanner scanf = new Scanner(System.in);
 
-        quartoStandard quartoStandard = new quartoStandard(0, 150.0, true, false, false, false, false, 1, 1, 0);
-        quartoSuite quartoSuite = new quartoSuite(0, 250.0, true, true, false, true, false, 1, 2, 1);
-        quartoLuxo quartoLuxo = new quartoLuxo(0, 350.0, true, true, true, true, true, 2, 3, 1);
+        quartoStandard quartoStandard = new quartoStandard(0, 150.0, true, false, false, false, false, true, 1, 1, 0);
+        quartoSuite quartoSuite = new quartoSuite(0, 250.0, true, true, false, true, false, true, 1, 2, 1);
+        quartoLuxo quartoLuxo = new quartoLuxo(0, 350.0, true, true, true, true, true, true, 2, 3, 1);
         CadastrosHospedes hospedes = new CadastrosHospedes("a", "123.456.789-00", "Brasileiro", "HotelBetCuscuz@gmail.com", "00/00/000", "(99) 99999-9999", 18);
-
+        CadastrosServicos servicos = new CadastrosServicos("SPA", 100);
 
         new File("C:\\Hotel").mkdir();
         new File("C:\\Hotel\\Quartos").mkdir();
@@ -74,7 +74,7 @@ public class Main {
                                 hospedes.salvarCadastroHospedesEmArquivo("Hóspedes.txt");
                                 break;
                             case 5:
-
+                                servicos.salvarCadastroServicosEmArquivo();
                                 break;
                             default:
                                 System.out.println("Opção não reconhecida, voltando ao menu principal.");
