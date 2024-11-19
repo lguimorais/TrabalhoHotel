@@ -37,7 +37,6 @@ public class Estadia {
     public double calcularCusto() {
         double custoQuarto;
         double custoServicos = servicosConsumidos.size() * 30.0; // Exemplo: R$30 por serviço
-    // espera ai so pra eu rodar pra ver se ta funcionando pls
         // Determina o custo com base no quarto selecionado
         switch (quartoSelecionado) {
             case 1:

@@ -28,11 +28,12 @@ public class Paineis {
             System.out.println("│                        │                        │");
             System.out.println("├————————————————————————┼————————————————————————┤");
             System.out.println("│                        │                        │");
-            System.out.println("│ 5- Serviços de Quarto. │       6- Voltar.       │");
+            System.out.println("│ 5- Serviços de Quarto. │       0- Voltar.       │");
             System.out.println("│                        │                        │");
             System.out.println("└————————————————————————┴————————————————————————┘");
             System.out.print("-> ");
             int escolhaCadastro = 0;
+
             if (scanf.hasNextInt()) { // Verifica se há um inteiro disponível
                 escolhaCadastro = scanf.nextInt();
             } else {
@@ -44,13 +45,13 @@ public class Paineis {
 
             switch (escolhaCadastro) {
                 case 1:
-                    quartoStandard.salvarCadastroQuartosEmArquivo("Quartos Standard.txt");
+                    quartoStandard.salvarCadastroQuartosEmArquivo("Quartos Standard.txt", hospedes);
                     break;
                 case 2:
-                    quartoSuite.salvarCadastroQuartosEmArquivo("Quartos Suite.txt");
+                    quartoSuite.salvarCadastroQuartosEmArquivo("Quartos Suite.txt", hospedes);
                     break;
                 case 3:
-                    quartoLuxo.salvarCadastroQuartosEmArquivo("Quartos Luxo.txt");
+                    quartoLuxo.salvarCadastroQuartosEmArquivo("Quartos Luxo.txt", hospedes);
                     break;
                 case 4:
                     hospedes.salvarCadastroHospedesEmArquivo("Hóspedes.txt");
@@ -58,9 +59,9 @@ public class Paineis {
                 case 5:
                     servicos.salvarCadastroServicosEmArquivo();
                     break;
-                case 6:
+                case 0:
                     System.out.println("Voltando ao menu inicial...");
-                    break;
+                    return;  // Sai do método e retorna ao menu inicial
                 default:
                     System.out.println("Opção inválida, tente novamente.");
             }

@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,56 +23,53 @@ public class Main {
 
         while (true) {
             try {
-            System.out.println("┌—————————————————————————————————————————————————┐");
-            System.out.println("│           SISTEMA DO MOTEL BET-CUSCUZ.          │");
-            System.out.println("├————————————————————————┬————————————————————————┤");
-            System.out.println("│                        │                        │");
-            System.out.println("│     1- Cadastros.      │    2- Relatorios.      │");
-            System.out.println("│                        │                        │");
-            System.out.println("├————————————————————————┼————————————————————————┤");
-            System.out.println("│                                                 │");
-            System.out.println("│              3- Voltar.                         │");
-            System.out.println("│                                                 │");
-            System.out.println("├————————————————————————┼————————————————————————┤");
-            System.out.print("-> ");
-            int escolha = 0;
-            if (scanf.hasNextInt()) {
-                escolha = scanf.nextInt();
-            } else {
-                System.out.println("Entrada inválida. Por favor, insira um número.");
-                scanf.nextLine();
-                continue;
-            }
-            scanf.nextLine();
+                System.out.println("┌—————————————————————————————————————————————————┐");
+                System.out.println("│           SISTEMA DO MOTEL BET-CUSCUZ.          │");
+                System.out.println("├————————————————————————┬————————————————————————┤");
+                System.out.println("│                        │                        │");
+                System.out.println("│     1- Cadastros.      │    2- Relatórios.      │");
+                System.out.println("│                        │                        │");
+                System.out.println("├————————————————————————┴————————————————————————┤");
+                System.out.println("│                                                 │");
+                System.out.println("│                    0- Sair.                     │");
+                System.out.println("│                                                 │");
+                System.out.println("└—————————————————————————————————————————————————┘");
+                System.out.print("-> ");
+                int escolha = 0;
 
-            switch (escolha) {
-                case 1:
-                    painelCadastro.painelCadastro();
-                    break;
-                case 2:
-                    relatorios.Relatorios();
-                    break;
-                case 3:
-                    break;
-                case 0:
-                    System.out.println("Sistema encerrado.");
-                    break;
-                default:
-                    System.out.println("Opção inválida, tente novamente.");
-            }
+                if (scanf.hasNextInt()) {
+                    escolha = scanf.nextInt();
+                } else {
+                    System.out.println("Entrada inválida. Por favor, insira um número.");
+                    scanf.nextLine(); // Limpa a entrada
+                    continue; // Retorna ao início do loop
+                }
+                scanf.nextLine(); // Limpa a linha após nextInt()
 
-            // TRATAMENTO DE ERROS.
+                switch (escolha) {
+                    case 1:
+                        painelCadastro.painelCadastro();
+                        System.out.println("Voltando ao Menu...");
+                        Utilitarios.exibirMensagemComPausa("Voltando ao menu...", 2000, 50);
+                        break;
+                    case 2:
+                        relatorios.Relatorios();
+                        Utilitarios.exibirMensagemComPausa("Voltando ao menu...", 2000, 50);
+                        break;
+                    case 0:
+                        System.out.println("Sistema encerrado.");
+                        return; // Encerra o programa corretamente
+                    default:
+                        System.out.println("Opção inválida, tente novamente.");
+                }
             } catch (InputMismatchException e) {
                 System.out.println("Erro: Entrada inválida. Por favor, insira um número.");
-                scanf.nextLine();
+                scanf.nextLine(); // Limpa a entrada após erro
             } catch (NoSuchElementException e) {
                 System.out.println("Erro: Entrada inesperada. Por favor, tente novamente.");
-                break;
             } catch (IllegalStateException e) {
                 System.out.println("Erro: Scanner foi fechado. Não é possível continuar.");
-                break;
             }
         }
     }
 }
-
