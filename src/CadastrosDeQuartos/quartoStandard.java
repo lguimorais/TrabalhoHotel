@@ -66,7 +66,7 @@ public class quartoStandard extends CadastrosQuartos {
             escritor.write("Quantidade de Camas Casal: " + quantiaCamasCasal + "\n");
 
             // Pontos ganhos.
-            System.out.println("Você irá ganhar: " + pontosGanhos + " pela hospedagem em 'Quarto de Luxo'.");
+            System.out.println("Você irá ganhar: " + pontosGanhos + " pontos pela hospedagem em 'Quarto Standard'.");
             escritor.write("Pontos ganhos: " + pontosGanhos + "\n");
 
             // Adicionar os pontos ao hóspede
