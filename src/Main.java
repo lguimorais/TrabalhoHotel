@@ -28,14 +28,10 @@ public class Main {
             System.out.println("│     1- Cadastros.      │    2- Relatorios.      │");
             System.out.println("│                        │                        │");
             System.out.println("├————————————————————————┼————————————————————————┤");
-            System.out.println("│                        │                        │");
-            System.out.println("│    3- COLOCAR ITEM.    │    4- COLOCAR ITEM.    │");
-            System.out.println("│                        │                        │");
+            System.out.println("│                                                 │");
+            System.out.println("│              3- Voltar.                         │");
+            System.out.println("│                                                 │");
             System.out.println("├————————————————————————┼————————————————————————┤");
-            System.out.println("│                        │                        │");
-            System.out.println("│    5- COLOCAR ITEM.    │        0- Sair.        │");
-            System.out.println("│                        │                        │");
-            System.out.println("└————————————————————————┴————————————————————————┘");
             System.out.print("-> ");
             int escolha = 0;
             if (scanf.hasNextInt()) {
