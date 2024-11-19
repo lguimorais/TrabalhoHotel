@@ -113,8 +113,7 @@ public class CadastrosHospedes {
 
 
     public void salvarCadastroHospedesEmArquivo(String CadastrosHospedes) {
-        Scanner scanner = new Scanner(System.in);
-        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Hóspedes\\" + CadastrosHospedes, true)) {
+        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Hóspedes\\" + CadastrosHospedes, true); Scanner scanner = new Scanner(System.in)) {
             // Definir nome do hóspede.
             System.out.println("Informe o nome do Hóspede: ");
             nomeHospede = scanner.nextLine();

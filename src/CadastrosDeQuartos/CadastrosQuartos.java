@@ -32,8 +32,7 @@ public abstract class CadastrosQuartos {
     }
 
     public void salvarCadastroQuartosEmArquivo(String CadastrosQuartos) {
-        Scanner scanner = new Scanner(System.in);
-        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + CadastrosQuartos, true)) {
+        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + CadastrosQuartos, true); Scanner scanner = new Scanner(System.in)) {
             // Definir número de quarto.
             System.out.println("Informe o número do quarto: ");
             numeroQuarto = scanner.nextInt();

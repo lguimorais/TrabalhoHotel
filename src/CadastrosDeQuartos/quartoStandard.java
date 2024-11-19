@@ -12,8 +12,7 @@ public class quartoStandard extends CadastrosQuartos {
 
     @Override
     public void salvarCadastroQuartosEmArquivo(String QuartosStandard) {
-        Scanner scanner = new Scanner(System.in);
-        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + QuartosStandard, true)) {
+        try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + QuartosStandard, true); Scanner scanner = new Scanner(System.in)) {
             // Definir número de quarto.
             System.out.println("Informe o número do quarto: ");
             numeroQuarto = scanner.nextInt();
