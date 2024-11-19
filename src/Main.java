@@ -17,6 +17,7 @@ public class Main {
         // Instanciando as classes
         Paineis painelCadastro = new Paineis();
         relatorios relatorios = new relatorios();
+        Paineis painelListagens = new Paineis();
 
         while (true) {
             try {
@@ -24,13 +25,13 @@ public class Main {
                 System.out.println("│           SISTEMA DO MOTEL BET-CUSCUZ.          │");
                 System.out.println("├————————————————————————┬————————————————————————┤");
                 System.out.println("│                        │                        │");
-                System.out.println("│     1- Cadastros.      │    2- Relatórios.      │");
+                System.out.println("│     1- Cadastros.      │     2- Relatórios.     │");
                 System.out.println("│                        │                        │");
-                System.out.println("├————————————————————————┴————————————————————————┤");
-                System.out.println("│                                                 │");
-                System.out.println("│                    0- Sair.                     │");
-                System.out.println("│                                                 │");
-                System.out.println("└—————————————————————————————————————————————————┘");
+                System.out.println("├————————————————————————┼————————————————————————┤");
+                System.out.println("│                        │                        │");
+                System.out.println("│  3- Listar Cadastros.  │        0- Sair.        │");
+                System.out.println("│                        │                        │");
+                System.out.println("└————————————————————————┴————————————————————————┘");
                 System.out.print("-> ");
                 int escolha = 0;
 
@@ -51,6 +52,10 @@ public class Main {
                         break;
                     case 2:
                         relatorios.Relatorios();
+                        Utilitarios.exibirMensagemComPausa("Voltando ao menu...", 2000, 50);
+                        break;
+                    case 3:
+                        painelListagens.painelListagens();
                         Utilitarios.exibirMensagemComPausa("Voltando ao menu...", 2000, 50);
                         break;
                     case 0:
