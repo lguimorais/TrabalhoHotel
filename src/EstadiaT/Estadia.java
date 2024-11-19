@@ -35,29 +35,17 @@ public class Estadia {
     }
 
     public double calcularCusto() {
-        double custoQuarto;
-        double custoServicos = servicosConsumidos.size() * 30.0; // Exemplo: R$30 por serviço
-        // Determina o custo com base no quarto selecionado
-        switch (quartoSelecionado) {
-            case 1:
-                custoQuarto = 200.0; // Valor para o quarto standard
-                break;
-            case 2:
-                custoQuarto = 300.0; // Valor para o quarto luxo
-                break;
-            case 3:
-                custoQuarto = 400.0; // Valor para o quarto 3
-                break;
-            case 4:
-                custoQuarto = 500.0; // Valor para o quarto 4
-                break;
-            default:
-                throw new IllegalArgumentException("Quarto inválido.");
+        long dias = java.time.Duration.between(horarioEntrada, horarioSaida).toDays();
+
+        // Se houver parte de um dia adicional, conta como mais uma diária
+        if (java.time.Duration.between(horarioEntrada, horarioSaida).toHours() % 24 != 0) {
+            dias++;
         }
 
-        // Retorna o custo total
-        return custoQuarto + custoServicos;
-    }
+        double custoServicos = servicosConsumidos.size() * 30.0; // Exemplo: R$30 por serviço
+        return custoServicos;
+      
+        }
 
     public String formatarEstadia() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");

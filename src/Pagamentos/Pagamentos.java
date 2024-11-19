@@ -1,7 +1,7 @@
 package Pagamentos;
 
-import java.util.Scanner;
 import EstadiaT.Estadia;
+import java.util.Scanner;
 
 public class Pagamentos {
     // Propriedades
@@ -23,9 +23,18 @@ public class Pagamentos {
         // Calcula o valor base da estadia
         double valorBase = estadia.calcularCusto();
         double valorExtra = 0.0;
-
+        double diaria = 0.0;
         // Solicitar valores adicionais, garantindo que seja um número
         while (true) {
+            System.out.print("Digite o valor da diaria: ");
+            if (inputP.hasNextDouble()) {
+                diaria = inputP.nextDouble();
+                inputP.nextLine(); // Limpar o buffer do scanner
+                break; // Sai do loop se o valor for válido
+            } else {
+                System.out.println(RED + "Valor inválido. Por favor, insira apenas números." + RESET);
+                inputP.nextLine(); // Limpar o buffer do scanner em caso de erro
+            }
             System.out.print("Digite o valor extra para adicionar ao total (apenas números, ou 0 para nenhum): ");
             if (inputP.hasNextDouble()) {
                 valorExtra = inputP.nextDouble();
@@ -37,7 +46,7 @@ public class Pagamentos {
             }
         }
 
-        double valorTotal = valorBase + valorExtra;
+        double valorTotal = diaria + valorBase + valorExtra;
 
         while (true) {
             // Exibe o menu de pagamento
