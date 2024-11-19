@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class quartoLuxo extends CadastrosQuartos {
 
-    public quartoLuxo(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, boolean estaDisponivel, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
-        super(0, 350.0, true, true, true, true, true, true, 2, 3, 1); // Configuração padrão do Quarto Standard
+    public quartoLuxo(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, boolean estaDisponivel, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal, int pontosGanhos) {
+        super(0, 350.0, true, true, true, true, true, true, 2, 3, 1, 150); // Configuração padrão do Quarto Standard
     }
 
     @Override
@@ -62,6 +62,10 @@ public class quartoLuxo extends CadastrosQuartos {
             System.out.println("Quantas camas de casal o quarto possui? ");
             quantiaCamasCasal = scanner.nextInt();
             escritor.write("Quantidade de Camas Casal: " + quantiaCamasCasal + "\n");
+
+            // Pontos ganhos.
+            System.out.println("Você irá ganhar: " + pontosGanhos + " pela hospedagem em 'Quarto de Luxo'.");
+            escritor.write("Pontos ganhos: " + pontosGanhos + "\n");
 
             escritor.write("———————————————————————————————————————————————\n");
             System.out.println("Cadastro do quarto salvo com sucesso.");

@@ -16,8 +16,9 @@ public abstract class CadastrosQuartos {
     int quantiaBanheiros;
     int quantiaCamasSolteiros;
     int quantiaCamasCasal;
+    int pontosGanhos;
 
-    public CadastrosQuartos(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, boolean estaDisponivel, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
+    public CadastrosQuartos(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, boolean estaDisponivel, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal, int pontosGanhos) {
         this.numeroQuarto = numeroQuarto;
         this.preco = preco;
         this.temBanheiro = temBanheiro;
@@ -29,6 +30,7 @@ public abstract class CadastrosQuartos {
         this.quantiaBanheiros = quantiaBanheiros;
         this.quantiaCamasSolteiros = quantiaCamasSolteiros;
         this.quantiaCamasCasal = quantiaCamasCasal;
+        this.pontosGanhos = pontosGanhos;
     }
 
     public void salvarCadastroQuartosEmArquivo(String CadastrosQuartos) {
@@ -83,6 +85,10 @@ public abstract class CadastrosQuartos {
             System.out.println("Quantas camas de casal o quarto possui? ");
             quantiaCamasCasal = scanner.nextInt();
             escritor.write("Quantidade de Camas Casal: " + quantiaCamasCasal + "\n");
+
+            // Pontos ganhos.
+            System.out.println("Você irá ganhar: " + pontosGanhos + " pela hospedagem em 'Quarto de Luxo'.");
+            escritor.write("Pontos ganhos: " + pontosGanhos + "\n");
 
             escritor.write("———————————————————————————————————————————————\n");
             System.out.println("Cadastro do quarto salvo com sucesso.");

@@ -13,6 +13,7 @@ public class CadastrosHospedes {
     String dataNascimentoHospede;
     String numeroHospede;
     int idadeHospede;
+    int pontosGanhos; // Novo atributo para armazenar os pontos ganhos
 
     public CadastrosHospedes(String nomeHospede, String cpfHospede, String nacionalidadeHospede, String emailHospede, String dataNascimentoHospede, String numeroHospede, int idadeHospede) {
         this.nomeHospede = nomeHospede;
@@ -22,7 +23,12 @@ public class CadastrosHospedes {
         this.numeroHospede = numeroHospede;
         this.idadeHospede = idadeHospede;
         this.dataNascimentoHospede = dataNascimentoHospede;
+        this.pontosGanhos = 0; // Inicializa com 0 pontos
     }
+
+    public void adicionarPontos(int pontos) {this.pontosGanhos += pontos;}
+
+    public int getPontosGanhos() {return pontosGanhos;}
 
         // Formatador de CPF.
         public static String formatarCPF(String cpfHospede) {
@@ -146,6 +152,10 @@ public class CadastrosHospedes {
             idadeHospede = calcularIdade(dataNascimentoHospede.replaceAll("/", ""));
             System.out.println("O hóspede tem: " + idadeHospede + " anos.");
             escritor.write("Idade do Hóspede: " + idadeHospede + "\n");
+
+            // Pontos ganhos.
+            System.out.println("O hóspede possúi: " + pontosGanhos);
+            escritor.write("Pontos Ganhos: " + pontosGanhos + "\n");
 
             escritor.write("———————————————————————————————————————————————\n");
             System.out.println("Cadastro do hóspede salvo com sucesso.");

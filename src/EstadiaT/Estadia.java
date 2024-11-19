@@ -1,4 +1,5 @@
 package EstadiaT;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -10,9 +11,10 @@ public class Estadia {
     private LocalDateTime horarioEntrada;
     private LocalDateTime horarioSaida;
     private boolean pago;
+    private int quartoSelecionado;
 
     public Estadia(String nomeCliente, List<String> servicosConsumidos, LocalDateTime horarioEntrada,
-            LocalDateTime horarioSaida) {
+                   LocalDateTime horarioSaida) {
         this.nomeCliente = nomeCliente;
         this.servicosConsumidos = new ArrayList<>(servicosConsumidos);
         this.horarioEntrada = horarioEntrada;
@@ -33,10 +35,29 @@ public class Estadia {
     }
 
     public double calcularCusto() {
-        long horas = java.time.Duration.between(horarioEntrada, horarioSaida).toHours();
-        double custoHora = 50.0; // Valor por hora
+        double custoQuarto;
         double custoServicos = servicosConsumidos.size() * 30.0; // Exemplo: R$30 por serviço
-        return (horas * custoHora) + custoServicos;
+    // espera ai so pra eu rodar pra ver se ta funcionando pls
+        // Determina o custo com base no quarto selecionado
+        switch (quartoSelecionado) {
+            case 1:
+                custoQuarto = 200.0; // Valor para o quarto standard
+                break;
+            case 2:
+                custoQuarto = 300.0; // Valor para o quarto luxo
+                break;
+            case 3:
+                custoQuarto = 400.0; // Valor para o quarto 3
+                break;
+            case 4:
+                custoQuarto = 500.0; // Valor para o quarto 4
+                break;
+            default:
+                throw new IllegalArgumentException("Quarto inválido.");
+        }
+
+        // Retorna o custo total
+        return custoQuarto + custoServicos;
     }
 
     public String formatarEstadia() {

@@ -65,26 +65,55 @@ public class Pagamentos {
             try {
                 switch (inputPag) {
                     case 1:
-                        System.out.print("...");
+                        System.out.print(".");
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         System.out.println(GREEN + "Pagamento via PIX de R$ " + String.format("%.2f", valorTotal) + "!" + RESET);
+                        System.out.print(".");
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         estadia.setPago(true); // Atualiza o status de pagamento
                         return;
                     case 2:
                     case 3:
                         solicitarSenha();
-                        System.out.print("...");
+                        System.out.print(".");
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.print(" ");
                         System.out.println(GREEN + "Pagamento via " + (inputPag == 2 ? "DÉBITO" : "CRÉDITO") + " de R$ " + String.format("%.2f", valorTotal) + "!" + RESET);
+                        System.out.print(".");
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         estadia.setPago(true); // Atualiza o status de pagamento
                         return;
                     case 4:
-                        System.out.println(RED + "Voltando ao menu principal..." + RESET);
+                        System.out.println(RED + "Voltando ao menu principal" + RESET);
+                        System.out.print(".");
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         return;
                     default:
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         System.out.println(RED + "Método de pagamento inválido. Tente novamente." + RESET);
                         Thread.sleep(1150);
                         break;
@@ -99,9 +128,20 @@ public class Pagamentos {
         try {
             java.io.Console console = System.console();
             if (console != null) {
+                System.out.print(".");
+                Thread.sleep(1150);
+                System.out.print(".");
+                Thread.sleep(1150);
+                System.out.print(".");
+                System.out.println(" ");
                 System.out.println("Por questões de segurança, sua senha não será exibida");
                 char[] senhaArray = console.readPassword("Digite sua senha de 6 dígitos: ");
                 if (senhaArray.length != 6) {
+                    System.out.print(".");
+                    System.out.print(".");
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    System.out.println(" ");
                     System.out.println(RED + "Senha inválida. Deve conter exatamente 6 dígitos." + RESET);
                     solicitarSenha();
                 }
@@ -110,6 +150,12 @@ public class Pagamentos {
                 System.out.print("Digite sua senha de 6 dígitos: ");
                 String senha = scanner.nextLine();
                 if (senha.length() != 6) {
+                    System.out.print(".");
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    System.out.println(" ");
                     System.out.println(RED + "Senha inválida. Deve conter exatamente 6 dígitos." + RESET);
                     solicitarSenha();
                 }

@@ -6,12 +6,12 @@ import java.util.Scanner;
 
 public class quartoSuite extends CadastrosQuartos {
 
-    public quartoSuite(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, boolean estaDisponivel, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal) {
-        super(0, 250.0, true, true, false, true, false, true, 1, 2, 1); // Configuração padrão do Quarto Standard
+    public quartoSuite(int numeroQuarto, double preco, boolean temBanheiro, boolean temTelevisao, boolean temFrigobar, boolean temArCondicionado, boolean temWifi, boolean estaDisponivel, int quantiaBanheiros, int quantiaCamasSolteiros, int quantiaCamasCasal, int pontosGanhos) {
+        super(0, 250.0, true, true, false, true, false, true, 1, 2, 1, 100); // Configuração padrão do Quarto Standard
     }
 
     @Override
-    public void salvarCadastroQuartosEmArquivo(String QuartosSuite) {
+    public void salvarCadastroQuartosEmArquivo(String QuartosSuite, CadastrosHospedes hospede) {
         Scanner scanner = new Scanner(System.in);
         try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + QuartosSuite, true)) {
             // Definir número de quarto.
@@ -45,7 +45,7 @@ public class quartoSuite extends CadastrosQuartos {
             escritor.write("Tem Wifi: " + temWifi + "\n");
 
             // Definir se está disponível.
-            System.out.println("Quarto 'Suite' está dispónivel.");
+            System.out.println("Quarto 'Suite' está disponível.");
             escritor.write("Está disponível: " + estaDisponivel + "\n");
 
             // Definir banheiros.
@@ -62,6 +62,16 @@ public class quartoSuite extends CadastrosQuartos {
             System.out.println("Quantas camas de casal o quarto possui? ");
             quantiaCamasCasal = scanner.nextInt();
             escritor.write("Quantidade de Camas Casal: " + quantiaCamasCasal + "\n");
+
+            // Pontos ganhos.
+            System.out.println("Você irá ganhar: " + pontosGanhos + " pontos pela hospedagem.");
+            escritor.write("Pontos Ganhos: " + pontosGanhos + "\n");
+
+            // Adicionar os pontos ao hóspede
+            hospede.adicionarPontos(pontosGanhos);
+            hospede.salvarCadastroHospedesEmArquivo("HospedesAtualizados.txt");
+
+            System.out.println(hospede.nomeHospede + " agora tem " + hospede.getPontosGanhos() + " pontos.");
 
             escritor.write("———————————————————————————————————————————————\n");
             System.out.println("Cadastro do quarto salvo com sucesso.");

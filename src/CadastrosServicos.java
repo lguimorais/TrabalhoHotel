@@ -33,7 +33,7 @@ public class CadastrosServicos {
             System.out.println("└—————————————————————————————————————————————————┘");
             System.out.print("-> ");
             int escolhaServico = scanner.nextInt();
-            scanner.nextLine(); // Consome a linha em branco que fica após o nextInt()
+            scanner.nextLine();
 
             switch (escolhaServico) {
                 case 1:
