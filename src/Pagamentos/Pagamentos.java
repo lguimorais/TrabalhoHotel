@@ -2,13 +2,14 @@ package Pagamentos;
 
 import java.util.Scanner;
 import EstadiaT.Estadia;
+import CadastrosDeQuartos.quartoStandard;
 
 public class Pagamentos {
-    // Propriedades
     String hospede;
     int inputPag = 0;
 
-    // Códigos ANSI para cores
+    // Códigos para cores
+    // -=-=-=-=--=--=---=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-
     public static final String RESET = "\u001B[0m";
     public static final String RED = "\u001B[31m";
     public static final String GREEN = "\u001B[32m";
@@ -16,6 +17,7 @@ public class Pagamentos {
     public static final String BRIGHT_BLACK = "\u001B[90m";
     public static final String BRIGHT_WHITE = "\u001B[97m";
     public static final String BOLD = "\u001B[1m";
+    // -=-=-=-=--=--=---=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-
 
     public void realizarPagamento(Estadia estadia, Scanner inputP) {
         this.hospede = estadia.getNomeCliente();
@@ -57,7 +59,7 @@ public class Pagamentos {
             System.out.println("│                    " + YELLOW + "R$ " + String.format("%.2f", valorTotal) + RESET + BRIGHT_BLACK + "               │");
             System.out.println("│                                                 │");
             System.out.println("└—————————————————————————————————————————————————┘" + RESET);
-            System.out.print("-> ");
+            System.out.print("-----> ");
 
             inputPag = inputP.nextInt();
             inputP.nextLine();
@@ -65,28 +67,69 @@ public class Pagamentos {
             try {
                 switch (inputPag) {
                     case 1:
-                        System.out.print("...");
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         System.out.println(GREEN + "Pagamento via PIX de R$ " + String.format("%.2f", valorTotal) + "!" + RESET);
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         estadia.setPago(true); // Atualiza o status de pagamento
                         return;
                     case 2:
                     case 3:
                         solicitarSenha();
-                        System.out.print("...");
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         System.out.println(GREEN + "Pagamento via " + (inputPag == 2 ? "DÉBITO" : "CRÉDITO") + " de R$ " + String.format("%.2f", valorTotal) + "!" + RESET);
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         estadia.setPago(true); // Atualiza o status de pagamento
                         return;
                     case 4:
-                        System.out.println(RED + "Voltando ao menu principal..." + RESET);
+                        System.out.println(RED + "Voltando ao menu principal" + RESET);
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         return;
                     default:
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         System.out.println(RED + "Método de pagamento inválido. Tente novamente." + RESET);
                         Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        Thread.sleep(1150);
+                        System.out.print(".");
+                        System.out.println(" ");
                         break;
                 }
             } catch (InterruptedException e) {
@@ -99,17 +142,45 @@ public class Pagamentos {
         try {
             java.io.Console console = System.console();
             if (console != null) {
+                Thread.sleep(1150);
+                    System.out.print(".");
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    System.out.println(" ");
                 System.out.println("Por questões de segurança, sua senha não será exibida");
                 char[] senhaArray = console.readPassword("Digite sua senha de 6 dígitos: ");
                 if (senhaArray.length != 6) {
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    System.out.println(" ");
                     System.out.println(RED + "Senha inválida. Deve conter exatamente 6 dígitos." + RESET);
                     solicitarSenha();
                 }
             } else {
                 Scanner scanner = new Scanner(System.in);
+                Thread.sleep(1150);
+                System.out.print(".");
+                Thread.sleep(1150);
+                System.out.print(".");
+                Thread.sleep(1150);
+                System.out.print(".");
+                System.out.println(" ");
                 System.out.print("Digite sua senha de 6 dígitos: ");
                 String senha = scanner.nextLine();
                 if (senha.length() != 6) {
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    Thread.sleep(1150);
+                    System.out.print(".");
+                    System.out.println(" ");
                     System.out.println(RED + "Senha inválida. Deve conter exatamente 6 dígitos." + RESET);
                     solicitarSenha();
                 }
