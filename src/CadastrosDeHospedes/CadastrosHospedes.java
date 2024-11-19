@@ -1,3 +1,5 @@
+package CadastrosDeHospedes;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -30,6 +32,9 @@ public class CadastrosHospedes {
 
     public int getPontosGanhos() {return pontosGanhos;}
 
+    public String getNomeHospede() {return nomeHospede;}
+
+    public void setNomeHospede(String nomeHospede) {this.nomeHospede = nomeHospede;}
         // Formatador de CPF.
         public static String formatarCPF(String cpfHospede) {
             if (cpfHospede == null || cpfHospede.length() != 11 || !cpfHospede.matches("\\d+")) {

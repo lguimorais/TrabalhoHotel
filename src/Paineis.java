@@ -2,7 +2,7 @@ import java.util.Scanner;
 import CadastrosDeQuartos.quartoLuxo;
 import CadastrosDeQuartos.quartoStandard;
 import CadastrosDeQuartos.quartoSuite;
-
+import CadastrosDeHospedes.CadastrosHospedes;
 
 public class Paineis {
     Scanner scanf = new Scanner(System.in);
