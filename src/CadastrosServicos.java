@@ -49,8 +49,8 @@ public class CadastrosServicos {
                     cadastrarServico(scanner, "Limpeza", "C:\\Hotel\\Serviços\\ServicoLimpeza.txt");
                     break;
                 case 5:
-                    System.out.println("Voltando ao menu principal...");
-                    break;
+                    System.out.println("Voltando ao menu anterior...");
+                    return;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
