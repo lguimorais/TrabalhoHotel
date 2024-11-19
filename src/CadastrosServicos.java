@@ -37,16 +37,16 @@ public class CadastrosServicos {
 
             switch (escolhaServico) {
                 case 1:
-                    cadastrarServico(scanner, "SPA", "C:\\Hotel\\Serviços\\ServicoSpa.txt");
+                    cadastrarServico(scanner, "SPA", "C:\\Hotel\\Serviços\\Servico Spa.txt");
                     break;
                 case 2:
-                    cadastrarServico(scanner, "Lavanderia", "C:\\Hotel\\Serviços\\ServicoLavanderia.txt");
+                    cadastrarServico(scanner, "Lavanderia", "C:\\Hotel\\Serviços\\Servico Lavanderia.txt");
                     break;
                 case 3:
-                    cadastrarServico(scanner, "Refeição", "C:\\Hotel\\Serviços\\ServicoRefeicao.txt");
+                    cadastrarServico(scanner, "Refeição", "C:\\Hotel\\Serviços\\Servico Refeicao.txt");
                     break;
                 case 4:
-                    cadastrarServico(scanner, "Limpeza", "C:\\Hotel\\Serviços\\ServicoLimpeza.txt");
+                    cadastrarServico(scanner, "Limpeza", "C:\\Hotel\\Serviços\\Servico Limpeza.txt");
                     break;
                 case 5:
                     System.out.println("Voltando ao menu anterior...");
