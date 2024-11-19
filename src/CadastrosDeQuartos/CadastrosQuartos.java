@@ -1,5 +1,7 @@
 package CadastrosDeQuartos;
 
+import CadastrosDeHospedes.CadastrosHospedes;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -33,7 +35,7 @@ public abstract class CadastrosQuartos {
         this.pontosGanhos = pontosGanhos;
     }
 
-    public void salvarCadastroQuartosEmArquivo(String CadastrosQuartos) {
+    public void salvarCadastroQuartosEmArquivo(String CadastrosQuartos, CadastrosHospedes hospede) {
         Scanner scanner = new Scanner(System.in);
         try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + CadastrosQuartos, true)) {
             // Definir número de quarto.

@@ -25,7 +25,7 @@ public class Main {
             System.out.println("│           SISTEMA DO MOTEL BET-CUSCUZ.          │");
             System.out.println("├————————————————————————┬————————————————————————┤");
             System.out.println("│                        │                        │");
-            System.out.println("│     1- Cadastros.      │    2- relatorios.      │");
+            System.out.println("│     1- Cadastros.      │    2- Relatorios.      │");
             System.out.println("│                        │                        │");
             System.out.println("├————————————————————————┼————————————————————————┤");
             System.out.println("│                        │                        │");
@@ -53,6 +53,8 @@ public class Main {
                     break;
                 case 2:
                     relatorios.Relatorios();
+                    break;
+                case 3:
                     break;
                 case 0:
                     System.out.println("Sistema encerrado.");

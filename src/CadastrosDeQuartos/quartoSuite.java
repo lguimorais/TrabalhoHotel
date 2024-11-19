@@ -1,5 +1,6 @@
 package CadastrosDeQuartos;
 
+import CadastrosDeHospedes.CadastrosHospedes;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -70,8 +71,7 @@ public class quartoSuite extends CadastrosQuartos {
             // Adicionar os pontos ao hóspede
             hospede.adicionarPontos(pontosGanhos);
             hospede.salvarCadastroHospedesEmArquivo("HospedesAtualizados.txt");
-
-            System.out.println(hospede.nomeHospede + " agora tem " + hospede.getPontosGanhos() + " pontos.");
+            System.out.println(hospede.getNomeHospede() + " agora tem " + hospede.getPontosGanhos() + " pontos.");
 
             escritor.write("———————————————————————————————————————————————\n");
             System.out.println("Cadastro do quarto salvo com sucesso.");

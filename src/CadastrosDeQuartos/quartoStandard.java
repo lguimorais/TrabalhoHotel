@@ -1,5 +1,6 @@
 package CadastrosDeQuartos;
 
+import CadastrosDeHospedes.CadastrosHospedes;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -11,7 +12,7 @@ public class quartoStandard extends CadastrosQuartos {
     }
 
     @Override
-    public void salvarCadastroQuartosEmArquivo(String QuartosStandard) {
+    public void salvarCadastroQuartosEmArquivo(String QuartosStandard, CadastrosHospedes hospede) {
         Scanner scanner = new Scanner(System.in);
         try (FileWriter escritor = new FileWriter("C:\\Hotel\\" + "Quartos\\" + QuartosStandard, true)) {
             // Definir número de quarto.
@@ -67,6 +68,11 @@ public class quartoStandard extends CadastrosQuartos {
             // Pontos ganhos.
             System.out.println("Você irá ganhar: " + pontosGanhos + " pela hospedagem em 'Quarto de Luxo'.");
             escritor.write("Pontos ganhos: " + pontosGanhos + "\n");
+
+            // Adicionar os pontos ao hóspede
+            hospede.adicionarPontos(pontosGanhos);
+            hospede.salvarCadastroHospedesEmArquivo("HospedesAtualizados.txt");
+            System.out.println(hospede.getNomeHospede() + " agora tem " + hospede.getPontosGanhos() + " pontos.");
 
             escritor.write("———————————————————————————————————————————————\n");
             System.out.println("Cadastro do quarto salvo com sucesso.");
