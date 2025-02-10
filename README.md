@@ -1,9 +1,9 @@
 
 
 
-# Sistema de Gerenciamento de Hotel - Hotel Bet-Cuzcuz 🏨
+# Sistema de Gerenciamento de Hotel - Hotel  🏨
 
-Este é um sistema desenvolvido em Java para gerenciar as operações do hotel **Bet-Cuzcuz**. Ele permite o gerenciamento de reservas, controle de pagamentos, programa de fidelidade e personalização de serviços para hóspedes.
+Este é um sistema desenvolvido em Java para gerenciar as operações do hotel ********. Ele permite o gerenciamento de reservas, controle de pagamentos, programa de fidelidade e personalização de serviços para hóspedes.
 
 ## Funcionalidades Principais
 
